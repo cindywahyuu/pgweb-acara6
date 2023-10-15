@@ -36,7 +36,7 @@
                             <li><a class="dropdown-item" href="jumlahminimarket.html">Jumlah Minimarket</a></li>
                             <li><a class="dropdown-item" href="kategoripelajar.html">Kategori Pelajar</a></li>
                             <li><a class="dropdown-item" href="produksipadi.html">Kategori Produksi Padi</a></li>
-                            <li><a class="dropdown-item" href="agama.html">Kategori Agama</a></li>
+                            <li><a class="dropdown-item" href="agama.html">Kategori Faskes</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -54,7 +54,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Kategori Produksi Padi</h5>
+                <h5>Kategori Faskes</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -95,75 +95,53 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-         var options = {
-          series: [{
-          data: [27409.67, 27446.37, 28149.85, 21775.60, 27945.22, 38653.57, 22593.53, 631.33, 17514.90, 34823.29, 10010.47, 19930.75, 19131.48, 22161.86, 25644.44, 33512.74, 7719.64, 10310.89, 14917.43, 15043.07, 20761.74]
-        }],
+             var options = {
+          series: [
+          {
+            name: "",
+            data: [2, 11, 34, 43, 230],
+          },
+        ],
           chart: {
           type: 'bar',
-          height: 380
+          height: 350,
         },
         plotOptions: {
           bar: {
-            barHeight: '100%',
-            distributed: true,
+            borderRadius: 0,
             horizontal: true,
-            dataLabels: {
-              position: 'bottom'
-            },
-          }
+            distributed: true,
+            barHeight: '80%',
+            isFunnel: true,
+          },
         },
-        colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e',
-          '#f48024', '#69d2e7'
+        colors: [
+          '#F44F5E',
+          '#E55A89',
+          '#D863B1',
+          '#CA6CD8',
+          '#B57BED',
+          '#8D95EB',
         ],
         dataLabels: {
           enabled: true,
-          textAnchor: 'start',
-          style: {
-            colors: ['#fff']
-          },
           formatter: function (val, opt) {
-            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+            return opt.w.globals.labels[opt.dataPointIndex] 
           },
-          offsetX: 0,
           dropShadow: {
-            enabled: true
-          }
-        },
-        stroke: {
-          width: 1,
-          colors: ['#fff']
-        },
-        xaxis: {
-          categories: ['Bandar Kedung Mulyo', 'Perak', 'Gudo', 'Diwek', 'Ngoro', 'Mojowarno', 'Bareng', 'Wonosalam', 'Mojoagung', 'Sumobito', 'Jogoroto', 'Peterongan', 'Jombang', 'Megaluh', 'Tembelang', 'Kesamben', 'Kudu', 'Ngusikan', 'Ploso', 'Kabuh', 'Plandaan'],
-        },
-        yaxis: {
-          labels: {
-            show: false
-          }
+            enabled: true,
+          },
         },
         title: {
-            text: 'Data Pertanian',
-            align: 'center',
-            floating: true
+          text: 'Fasilitas Kesehatan',
+          align: 'middle',
         },
-        subtitle: {
-            text: 'Jumlah hasil produksi padi',
-            align: 'center',
+        xaxis: {
+          categories: ['RS Khusus', 'RS Umum', 'Puskesmas', 'Klinik', 'Polindes'],
         },
-        tooltip: {
-          theme: 'dark',
-          x: {
-            show: false
-          },
-          y: {
-            title: {
-              formatter: function () {
-                return 'satuan ton'
-              }
-            }
-          }
-        }
+        legend: {
+          show: false,
+        },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
