@@ -53,7 +53,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Penduduk Berdasarkan Jenis Kelamin</h5>
+                <h5>Kategori Produksi Padi</h5>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -94,60 +94,60 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var options = {
-            series: [{
-                name: 'Jumlah Penduduk Laki-Laki',
-                data: [26471, 29407, 29238, 56900, 40130, 50326, 29755, 17530, 42112, 45532, 37176, 35325, 70747, 20719, 28902, 34678, 16325, 11850, 21702, 21390, 1929]
-            }, {
-                name: 'Jumlah Penduduk Perempuan',
-                data: [25607, 29232, 29206, 55927, 39542, 48389, 29087, 17233, 40853, 43910, 35794, 34561, 71504, 20670, 28467, 33866, 16339, 11708, 21474, 21622, 9360]
-            }],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-    
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Bandar Kedung Mulyo', 'Perak', 'Gudo', 'Diwek', 'Ngoro', 'Mojowarno', 'Bareng', 'Wonosalam', 'Mojoagung', 'Sumobito', 'Jogoroto', 'Peterongan', 'Jombang', 'Megaluh', 'Tembelang', 'Kesamben', 'Kudu', 'Ngusikan', 'Ploso', 'Kabuh', 'Plandaan'],
-                title:{
-                    text:'Kecamatan'
-                }
-            },
-            yaxis: {
-                title: {
-                    text: 'Jiwa'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "$ " + val + " Jiwa"
-                    }
-                }
-            },
-            
+         var options = {
+          series: [
+          {
+            name: "",
+            data: [200, 330, 548, 740, 880, 990, 1100, 1380],
+          },
+        ],
+          chart: {
+          type: 'bar',
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 0,
+            horizontal: true,
+            distributed: true,
+            barHeight: '80%',
+            isFunnel: true,
+          },
+        },
+        colors: [
+          '#F44F5E',
+          '#E55A89',
+          '#D863B1',
+          '#CA6CD8',
+          '#B57BED',
+          '#8D95EB',
+          '#62ACEA',
+          '#4BC3E6',
+        ],
+        dataLabels: {
+          enabled: true,
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] 
+          },
+          dropShadow: {
+            enabled: true,
+          },
+        },
+        title: {
+          text: 'Pyramid Chart',
+          align: 'middle',
+        },
+        xaxis: {
+          categories: ['Sweets', 'Processed Foods', 'Healthy Fats', 'Meat', 'Beans & Legumes', 'Dairy', 'Fruits & Vegetables', 'Grains'],
+        },
+        legend: {
+          show: false,
+        },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+      
     </script>
 </body>
 
